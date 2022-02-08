@@ -1,4 +1,4 @@
-<project name="zm-taglib" default="jar">
+<project name="zm-taglib" default="jar" xmlns:ivy="antlib:org.apache.ivy.ant">
 
     <import file="ant-global.xml" />
 
@@ -51,6 +51,8 @@
             <param name="includes" value="com/**, META-INF/**, *.properties" />
         </antcall>
         <antcall target="delete-duplicate-dependencies"></antcall>
+        <ivy:resolve />
+        <ivy:install organisation="eu.bitwalker" module="UserAgentUtils" revision="1.21" from="build" to="build" overwrite="true"/>
     </target>
 
 </project>
